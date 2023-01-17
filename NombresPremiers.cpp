@@ -8,3 +8,4 @@
 // Ce nombre n'est pas premier car il est divisible par 2.
 // Entrer un nombre : 2
 // Ce nombre est premier. 
+
