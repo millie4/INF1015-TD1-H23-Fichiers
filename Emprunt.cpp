@@ -15,29 +15,31 @@ int main() {
         double somme_argent;
         double montant_mensuel;
         double taux_interet;
-        // calcul du taux d'interets mensuel
-        double taux_mensuel = taux_interet / 12;
 
-        cout << "entrez la somme d'argent pretee : ";
+        cout << "Entrez la somme d'argent pretee : ";
         cin >> somme_argent;
         cout << "Entrez le montant rembourse mensuellement : "; 
         cin >> montant_mensuel;
         cout << "Entrez le taux d'interet annuel : ";
         cin >> taux_interet;
 
+        // calcul du taux d'interets mensuel
+        double taux_mensuel = taux_interet / 1200.0;
+
         // verification de la validité des données
-        if (validation(taux_interet, 100, 0, somme_argent)) {
+        if (validation(taux_interet, 100.0, 0.0, somme_argent)) {
 
             // Calcul du montant total à rembourser, interets inclues 
-            double MontantArembourse = somme_argent * (1 + taux_interet);
+            double MontantArembourse = somme_argent * (1.0 + taux_interet/100.0);
             // Calcul du montant remboursé mensuellement, intérets inclues 
-            double Mensualite = montant_mensuel * (1 + taux_mensuel);
+            double Mensualite = montant_mensuel * (1.0 + taux_mensuel);
             // Calcul du nombre de mois nécessaires pour le remboursement
             double NombreDeMois = MontantArembourse / Mensualite;
             // Calcul des interets totaux percus par le pretteur
             double InteretsTotaux = montant_mensuel * taux_mensuel * NombreDeMois;
 
-            return NombreDeMois, InteretsTotaux;
+            cout << NombreDeMois << endl;
+            cout << InteretsTotaux << endl;
             break;
 
         }
@@ -48,5 +50,4 @@ int main() {
         }
         }
     return 0;
-
 }
