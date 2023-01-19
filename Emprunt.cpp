@@ -9,29 +9,44 @@ bool validation(int number, int borneSup, int borneInf, int montant) {
         }
         return valide;
     }
-
-int tempsNecessaire(int montant, int remboursementMensuel, int tauxAnnuel) {
-
-}
-
 int main() {
-    double somme_argent;
-    double montant_mensuel;
-    double taux_interet;
+    while (true) {
 
-    cout << "entrez la somme d'argent pretee : " << endl;
-    cin >> somme_argent;
-    cout << "Entrez le montant rembourse mensuellement : " << endl; 
-    cin >> montant_mensuel;
-    cout << "Entrez le taux d'interet annuel : " << endl;
+        double somme_argent;
+        double montant_mensuel;
+        double taux_interet;
+        // calcul du taux d'interets mensuel
+        double taux_mensuel = taux_interet / 12;
 
-    if (validation(taux_interet, 100, 0, somme_argent)) {
-        tempsNecessaire(somme_argent, montant_mensuel, taux_interet);
-    }
+        cout << "entrez la somme d'argent pretee : ";
+        cin >> somme_argent;
+        cout << "Entrez le montant rembourse mensuellement : "; 
+        cin >> montant_mensuel;
+        cout << "Entrez le taux d'interet annuel : ";
+        cin >> taux_interet;
 
-    else {
-        cout << "Les données ne sont pas valides. veulliez reessayer." << endl;
+        // verification de la validité des données
+        if (validation(taux_interet, 100, 0, somme_argent)) {
 
-    }
+            // Calcul du montant total à rembourser, interets inclues 
+            double MontantArembourse = somme_argent * (1 + taux_interet);
+            // Calcul du montant remboursé mensuellement, intérets inclues 
+            double Mensualite = montant_mensuel * (1 + taux_mensuel);
+            // Calcul du nombre de mois nécessaires pour le remboursement
+            double NombreDeMois = MontantArembourse / Mensualite;
+            // Calcul des interets totaux percus par le pretteur
+            double InteretsTotaux = montant_mensuel * taux_mensuel * NombreDeMois;
+
+            return NombreDeMois, InteretsTotaux;
+            break;
+
+        }
+
+        // si les données ne sont pas valides, refaire la boucle
+        else {
+            cout << "Les données ne sont pas valides. veulliez reessayer." << endl;
+        }
+        }
+    return 0;
 
 }

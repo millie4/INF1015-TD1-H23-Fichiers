@@ -11,21 +11,22 @@
 
 #include <iostream>
 using namespace std;
+#include <cmath>
 
 int main () {
-    int i, nombre;
-    bool is_prime = true;
-    
 
+    int i; 
+    int nombre; // notre nombre entier 
+    bool is_prime = true;
     cout << "Entrez un nombre entier : ";
     cin >> nombre;
 
-    // 0 and 1 are not prime numbers
+    // O et 1 sont des nombres premiers 
     if (nombre == 0 || nombre == 1) {
         is_prime = false;
     }
 
-    // loop to check if n is prime
+    // Boucle pour verifier si le nombre est premier 
     for (i = 2; i <= nombre/2; ++i) {
         if (nombre % i == 0) {
         is_prime = false;
@@ -33,16 +34,21 @@ int main () {
         }
     }
 
-    int n = 2;
+    int n = 3;
     if (is_prime)
         cout << nombre << " est un nombre premier";
-    else
-        while (n <= nombre) {
-            if (nombre % n == 0) {
-                printf("Ce nombre n'est pas premier car il est divisible par %d\n", n);
-                break;
-            }
-            n ++;
+    else {
+        if (nombre % 2 == 0) {
+            printf("Ce nombre n'est pas premier car il est divisible par 2");
         }
+        else {
+            for (n; n <= sqrt(nombre); n += 2 ) {
+                if (nombre % n == 0 ) {
+                    printf("Ce nombre n'est pas premier car il est divisible par %d\n", n);
+                    break;
+                }
+            }
+        }
+    }
   return 0;
 }
