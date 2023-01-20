@@ -1,17 +1,18 @@
 #include <iostream>
 using namespace std;
-#define INFINITY __builtin_inff();
+#define HUGE_VAL __builtin_huge_val();
 #include <cmath>
 
-
-bool validerBornes(int nombre, int borneSup, int borneInf) {
-        bool valide = true;
-        if (nombre > borneSup || nombre < borneInf) {
-            valide = false;
+    bool validerBornes(double nombre, double borneInf, double borneSup) {
+            bool valide = true;
+            if (nombre > borneSup || nombre < borneInf) {
+                valide = false;
+            }
+            return valide;
         }
-        return valide;
-    }
+
 int main() {
+
     while (true) {
 
         double sommeArgent;
@@ -29,7 +30,7 @@ int main() {
         double tauxMensuel = tauxInteret / 1200.0;
 
         // verification des bornes des donnees
-        if (validerBornes(tauxInteret, 100.0, 0.0) & validerBornes(sommeArgent, HUGE_VAL, 0.0)) {
+        if (validerBornes(tauxInteret, 0.0, 100.0) & validerBornes(sommeArgent, 0.0, HUGE_VAL)) {
 
             // Calcul du montant total a rembourser, interets inclus 
             double dette = sommeArgent * (1.0 + tauxInteret/100.0);
@@ -42,13 +43,10 @@ int main() {
 
             cout << nombreDeMois << endl;
             cout << interetsTotaux << endl;
-            break;
-
         }
-
         // si les données ne sont pas valides, refaire la boucle
         else {
-            cout << "Les données ne sont pas valides. veulliez reessayer." << endl;
+            cout << "Les donnees ne sont pas valides. Veulliez reessayer." << endl;
         }
         }
     return 0;
