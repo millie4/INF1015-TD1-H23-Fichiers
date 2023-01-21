@@ -7,13 +7,25 @@ int main() {
     // Initialisation d'un générateur aleatoire.
     default_random_engine aleatoire(random_device{}());
     std::uniform_real_distribution<double> myUnifRealDist(-1.0, 1.0);
-    
-    // Generation de deux valeurs aleatoires entre -1 et 1
-    double x = myUnifRealDist(aleatoire);
-    std::cout << std::fixed << x << std::endl;
 
-    double y = myUnifRealDist(aleatoire);
-    std::cout << std::fixed << y << std::endl;
+    double nbIterations;
+    cout << "Entrez le nombre d'iterations souhaite: ";
+    cin >> nbIterations;
 
+    double ptDansCercle = 0;
+
+    for(int i = 0; i<nbIterations; i++) {
+        // Generation de deux valeurs aleatoires entre -1 et 1
+        double x = myUnifRealDist(aleatoire);
+        double y = myUnifRealDist(aleatoire);
+        
+        if ((x*x + y*y)<1.0) {
+            ptDansCercle++;
+        }
+    }
+
+    double aireCarre = 4.0;
+    double approxPi = aireCarre * ptDansCercle/nbIterations;
+    cout << approxPi << endl;
     return 0;
 }
