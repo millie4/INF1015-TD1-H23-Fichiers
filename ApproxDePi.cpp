@@ -26,6 +26,6 @@ int main() {
 
     double aireCarre = 4.0;
     double approxPi = aireCarre * ptDansCercle/nbIterations;
-    cout << approxPi << endl;
+    printf("L'approximation de pi est %.6lf", approxPi);
     return 0;
 }
