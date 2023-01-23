@@ -22,6 +22,9 @@ int main() {
         if ((x*x + y*y)<1.0) {
             ptDansCercle++;
         }
+
+    
+    
     }
 
     double aireCarre = 4.0;
