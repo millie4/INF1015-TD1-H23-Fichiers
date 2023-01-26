@@ -1,5 +1,4 @@
 #include <iostream>
-#define HUGE_VAL __builtin_huge_val();
 #include <string>
 #include <fstream>
 using namespace std;
@@ -11,14 +10,15 @@ int main () {
 
     ifstream file("dictionnaire.txt");
     int count; // the number of lines
-    string* lines = nullptr; // array of strings
 
     if(file.is_open()) {
-        string myArray[5];
-
-        for(int i = 0; i < 5; ++i)
-        {
-            file >> myArray[i];
+        string montexte;
+        // Read data from the file object and put it into a string.
+        while (getline(file, montexte)) { 
+            // Print the data of the string.
+            cout << montexte << "\n"; 
         }
+
     }
+    return 0;
 }
