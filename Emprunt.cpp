@@ -3,13 +3,13 @@ using namespace std;
 #define HUGE_VAL __builtin_huge_val();
 #include <cmath>
 
-    bool validerBornes(double nombre, double borneInf, double borneSup) {
-            bool valide = true;
-            if (nombre > borneSup || nombre < borneInf) {
-                valide = false;
-            }
-            return valide;
+bool validerBornes(double nombre, double borneInf, double borneSup) {
+        bool valide = true;
+        if (nombre > borneSup || nombre < borneInf) {
+            valide = false;
         }
+        return valide;
+    }
 
 int main() {
 

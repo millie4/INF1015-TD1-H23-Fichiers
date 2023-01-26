@@ -11,7 +11,8 @@ int main () {
     // initialisation de 4 tableaux de taille 10 : un pour les nombres générés aléatoirement, un qui 
     // stockera les nombres paires, un autre pour les nombres impaires et le dernier étant le tableau
     // final. 
-    int tableau[tailleTableau], paires[tailleTableau], impaires[tailleTableau],nouveauTableau[tailleTableau], compteurPaires=0, compteurImpaires=0;    
+    int tableau[tailleTableau], paires[tailleTableau], impaires[tailleTableau],nouveauTableau[tailleTableau];
+    int compteurPaires=0, compteurImpaires=0;    
 
     default_random_engine aleatoire(random_device{}());
     std::uniform_int_distribution<int> myUnifRealDist(0, 100);
