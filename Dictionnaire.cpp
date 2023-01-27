@@ -6,23 +6,27 @@ using namespace std;
 
 int main () {
     int nbrMots = 4;
-    int nbrColonne = 3;
-    string tableau[3][2];
+    int nbrColonnes = 3;
+    string tableau[nbrMots][nbrColonnes];
 
-    ifstream file("dictionnaire.txt");
+    ifstream fichier("C:/Users/rusem/Documents/Uni/H23/INF1015 - Prog/INF1015-TD1-H23-Fichiers/dictionnaire.txt");
 
-    if(file.is_open()) {
-        string montexte;
-        // Read data from the file object and put it into a string.
-        for (int i = 0; i < nbrMots; i++) {
-            for (int j = 0; j < nbrColonne; j++) {
-                while (getline(file, montexte, '\t')) { 
-                    tableau[i][j] = montexte;
-                }
+    if(fichier.is_open()) {
+        string texte;
+        for (int ligne = 0; ligne < nbrMots; ligne++) {
+            for (int colonne = 0; colonne < nbrColonnes; colonne++) {
+                getline(fichier, texte, '\t');
+                tableau[ligne][colonne] = texte;
             }
         }
-        cout << tableau[0][0] << endl;
-
+        cout << tableau[2][3] << endl;
+        int indexPlusLongMot = 0;
+        for (int mot = 0; mot < nbrMots; mot++) {
+            if (tableau[mot][0].length() <= tableau[indexPlusLongMot][0].length()) {
+                indexPlusLongMot = mot;
+            }
+        }
+        
     }
         
     return 0;
