@@ -5,30 +5,30 @@ using namespace std;
 
 int main() {
     // Initialisation d'un générateur aleatoire.
+    double borneInf = -1.0;
+    double borneSup = 1.0; 
     default_random_engine aleatoire(random_device{}());
-    std::uniform_real_distribution<double> myUnifRealDist(-1.0, 1.0);
+    uniform_real_distribution<double> myUnifRealDist(borneInf, borneSup);
 
-    double nbIterations;
+    double nIterations;
     cout << "Entrez le nombre d'iterations souhaite: ";
-    cin >> nbIterations;
+    cin >> nIterations;
 
-    double ptDansCercle = 0;
+    double pointsDansCercle = 0;
 
-    for(int i = 0; i<nbIterations; i++) {
+    for(int i = 0; i < nIterations; i++) {
         // Generation de deux valeurs aleatoires entre -1 et 1
         double x = myUnifRealDist(aleatoire);
         double y = myUnifRealDist(aleatoire);
         
+        // compte des points qui se trouvent à l'intérieur du cercle
         if ((x*x + y*y)<1.0) {
-            ptDansCercle++;
+            pointsDansCercle++;
         }
-
-    
-    
     }
 
     double aireCarre = 4.0;
-    double approxPi = aireCarre * ptDansCercle/nbIterations;
+    double approxPi = aireCarre * pointsDansCercle * nIterations;
     printf("L'approximation de pi est %.6lf", approxPi);
     return 0;
 }

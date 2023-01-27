@@ -9,7 +9,7 @@ int main () {
     int nbrColonnes = 3;
     string tableau[nbrMots][nbrColonnes];
 
-    ifstream fichier("C:/Users/rusem/Documents/Uni/H23/INF1015 - Prog/INF1015-TD1-H23-Fichiers/dictionnaire.txt");
+    ifstream fichier("dictionnaire.txt");
 
     if(fichier.is_open()) {
         string texte;
@@ -21,11 +21,21 @@ int main () {
         }
         cout << tableau[2][3] << endl;
         int indexPlusLongMot = 0;
+        int max_size =0;
         for (int mot = 0; mot < nbrMots; mot++) {
-            if (tableau[mot][0].length() <= tableau[indexPlusLongMot][0].length()) {
-                indexPlusLongMot = mot;
-            }
+            if ( max_size < tableau[mot][0].size() ) { 
+                max_size = tableau[mot][0].size();
+                tableau[mot][0] = mot;
+            }           
+            else if ( max_size == mot.size() ) { 
+                max mot += "; ";
+                max mot += mot;
+            }         
+            // if (tableau[mot][0].length() < tableau[indexPlusLongMot][0].length()) {
+            //     indexPlusLongMot = mot;
+            // }
         }
+        cout << tableau[indexPlusLongMot][0];
         
     }
         

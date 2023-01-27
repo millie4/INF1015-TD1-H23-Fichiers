@@ -4,34 +4,34 @@ using namespace std;
 
 int main () {
 
-    int i; 
     int nombre; // notre nombre entier 
-    bool est_prime = true;
+    bool estPrime = true;
     cout << "Entrez un nombre entier : ";
     cin >> nombre;
 
-    // O et 1 sont des nombres premiers 
+    // O et 1 ne sont pas des nombres premiers 
     if (nombre == 0 || nombre == 1) {
-        est_prime = false;
+     estPrime = false;
     }
 
-    // Boucle pour verifier si le nombre est premier 
-    for (i = 2; i <= nombre/2; ++i) {
+    // Boucle pour verifier si le nombre est premier
+    // on commence à 2 
+    for (int i = 2; i <= nombre/2; i++) {
         if (nombre % i == 0) {
-        est_prime = false;
-        break;
+            estPrime = false;
+            break;
         }
     }
 
-    int n = 3;
-    if (est_prime)
+    if (estPrime) {
         cout << nombre << " est un nombre premier";
+    }
     else {
         if (nombre % 2 == 0) {
             printf("Ce nombre n'est pas premier car il est divisible par 2");
         }
         else {
-            for (n; n <= sqrt(nombre); n += 2 ) {
+            for (int n = 3; n <= sqrt(nombre); n += 2 ) {
                 if (nombre % n == 0 ) {
                     printf("Ce nombre n'est pas premier car il est divisible par %d\n", n);
                     break;

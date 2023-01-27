@@ -25,6 +25,7 @@ int main() {
         cout << "Entrez le coefficient : ";
         cin >> coeffRebond;
         
+        // Vérifier si la saisie de l'utilisateur est valide 
         if (validerBornes(nbRebonds, 0.0, HUGE_VAL) & validerBornes(hauteur, 0.0, HUGE_VAL) & validerBornes(coeffRebond, 0.0, 1.0)) {
             validationVariables = true;
         }
