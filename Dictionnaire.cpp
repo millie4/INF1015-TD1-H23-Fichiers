@@ -5,37 +5,34 @@ using namespace std;
 
 
 int main () {
-    int nbrMots = 4;
-    int nbrColonnes = 3;
-    string tableau[nbrMots][nbrColonnes];
-
+    int nMots = 4;
+    int nColonnes = 3;
+    int elementsTotaux = nColonnes*nMots;
+    // initialisation d'un tableau de taille 12, soit le nombre total d'élements dans le dictionnaires 
+    string tableau[elementsTotaux]; 
+    // lecture du fichier .txt
     ifstream fichier("dictionnaire.txt");
 
     if(fichier.is_open()) {
         string texte;
-        for (int ligne = 0; ligne < nbrMots; ligne++) {
-            for (int colonne = 0; colonne < nbrColonnes; colonne++) {
-                getline(fichier, texte, '\t');
-                tableau[ligne][colonne] = texte;
-            }
+        // On itere sur chaque element du tableau
+        for (int element=0; element< elementsTotaux; element++) {
+            getline(fichier, texte, '\t');
+            tableau[element] = texte;
         }
-        cout << tableau[2][3] << endl;
+
+        // initialisation de la variable de l'index du plus long mot
         int indexPlusLongMot = 0;
-        int max_size =0;
-        for (int mot = 0; mot < nbrMots; mot++) {
-            if ( max_size < tableau[mot][0].size() ) { 
-                max_size = tableau[mot][0].size();
-                tableau[mot][0] = mot;
+        // variable de la plus grande taille d'un mot
+        int tailleMax = 0;
+        int prochainMot = 3;
+        for (int indexMot = 0; indexMot < nMots; indexMot+=prochainMot) {
+            if ( tailleMax < tableau[indexMot].size() ) { 
+                tailleMax = tableau[indexMot].size();
+                indexPlusLongMot = indexMot;
             }           
-            else if ( max_size == mot.size() ) { 
-                max mot += "; ";
-                max mot += mot;
-            }         
-            // if (tableau[mot][0].length() < tableau[indexPlusLongMot][0].length()) {
-            //     indexPlusLongMot = mot;
-            // }
         }
-        cout << tableau[indexPlusLongMot][0];
+        cout << tableau[indexPlusLongMot] << " "<< '(' << tableau[indexPlusLongMot + 1] << ')' << " " << ":" << " "<< tableau[indexPlusLongMot + 2];
         
     }
         
