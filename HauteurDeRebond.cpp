@@ -42,5 +42,5 @@ int main() {
         vitesse *= coeffRebond;
     }
 
-    cout << hauteur << endl;
+    cout << "La hauteur atteinte pas la balle est : "<<hauteur << endl;
 }

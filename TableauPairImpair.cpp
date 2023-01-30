@@ -9,7 +9,7 @@ using namespace std;
 //     uniform_int_distribution<int> myUnifRealDist(borneInf, borneSup);
 //     int monNombre = myUnifRealDist(aleatoire);
 //     return monNombre;
-// }
+// 
 
 int main () {
 
